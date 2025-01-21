@@ -1,0 +1,42 @@
+# Node.js
+node_modules/
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Logs
+logs/
+*.log
+*.log.*
+
+# Dependency directories
+bower_components/
+
+# npm package-lock files
+package-lock.json
+yarn.lock
+
+# IDE specific
+.vscode/
+.idea/
+
+# MacOS
+.DS_Store
+
+# Windows
+Thumbs.db
+
+# MongoDB data (if applicable)
+db/
+
+# Optional: Coverage output folder (for testing)
+coverage/
+
+# Build files (if you are building before deployment)
+build/
+

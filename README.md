@@ -16,26 +16,28 @@ Game Logic: Tic-Tac-Toe game logic for validating moves, checking for winners, a
 Getting Started
 To run this project locally, follow the instructions below:
 
-1. Clone the Repository
-bash
-Copy
-Edit
-git clone https://github.com/yourusername/tic-tac-toe-game.git
-cd tic-tac-toe-game
+1. **Clone the Repository**
+
+```bash
+   git clone https://github.com/Prathameshgp48/tic_tac_toe.git
+```
 
 ### 2. Set Up the Backend
 
 1. **Navigate to the backend directory**:
+
    ```bash
    cd backend
    ```
 
 2. **Install dependencies**:
+
    ```bash
    npm install
    ```
 
 3. **Set up MongoDB**:
+
    - Ensure you have MongoDB running locally or use a cloud database service like MongoDB Atlas.
    - Set your MongoDB URI in the `.env` file according to following format:
      ```bash
@@ -43,6 +45,7 @@ cd tic-tac-toe-game
      ```
 
 4. **Run the backend**:
+
    ```bash
    npm start
    ```
@@ -52,25 +55,29 @@ cd tic-tac-toe-game
 ### 3. Set Up the Frontend
 
 1. **Navigate to the frontend directory**:
+
    ```bash
    cd frontend
    ```
 
 2. **Install dependencies**:
+
    ```bash
    npm install
    ```
 
 3. **Run the frontend**:
+
    ```bash
    npm run dev
    ```
 
-   The frontend will be running at `http://localhost:5173`. 
+   The frontend will be running at `http://localhost:5173`.
 
 ### 4. API Endpoints
 
 - **User Routes**:
+
   - `POST /register`: Register a new user.
   - `POST /login`: Login a user and receive a JWT token.
   - `GET /profile`: Get the user profile (requires authentication).
@@ -90,6 +97,7 @@ cd tic-tac-toe-game
 The MongoDB schema consists of the following collections:
 
 - **Users**:
+
   - `username`: String, unique.
   - `email`: String, unique.
   - `password`: String (hashed).
@@ -115,6 +123,3 @@ The MongoDB schema consists of the following collections:
 - Player matching his/her mark (X/ O) along row, column, or diagonal wins.
 - If no player matches his/her mark and grid is full, then game draws.
 - MongoDB is used to store user information and game data.
-
-
-

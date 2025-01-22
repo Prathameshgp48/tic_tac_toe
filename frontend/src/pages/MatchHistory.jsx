@@ -4,12 +4,14 @@ import { useParams } from "react-router-dom";
 
 function MatchHistory() {
   const [matches, setMatches] = useState([]);
+  const [selectedGame, setSelectedGame] = useState(null);
+  const { username } = useParams();
   const token = localStorage.getItem("token");
 
   const fetchMatchHistory = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:5000/api/v1/game/history",
+        `http://localhost:5000/api/v1/game/history`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -18,7 +20,6 @@ function MatchHistory() {
       );
 
       if (response.data.success) {
-        console.log("match history:", response.data.history);
         setMatches(response.data.history);
       } else {
         console.log(response.data.message);
@@ -31,6 +32,10 @@ function MatchHistory() {
   useEffect(() => {
     fetchMatchHistory();
   }, []);
+
+  const toggleGameDetails = (gameId) => {
+    setSelectedGame((prevGame) => (prevGame === gameId ? null : gameId));
+  };
 
   return (
     <div className="min-h-screen bg-gray-100 py-8 px-4">
@@ -70,30 +75,42 @@ function MatchHistory() {
                   {match.moves.length}
                 </p>
               </div>
-
-              {/* Timeline of moves */}
-              <div className="mb-4">
-                <h3 className="text-lg font-semibold text-gray-700 mb-2">
-                  Move Timeline
-                </h3>
-                <div className="space-y-2">
-                  {match.moves.map((move, index) => (
-                    <div
-                      key={index}
-                      className="flex justify-between text-gray-600"
-                    >
-                      <p>
-                        <span className="font-medium">{move.player}</span> made
-                        a move at position{" "}
-                        {`(${move.position[0]}, ${move.position[1]})`}{" "}
-                        <span className="text-sm">
-                          ({new Date(move.timestamp).toLocaleTimeString()})
-                        </span>
-                      </p>
-                    </div>
-                  ))}
-                </div>
+              <div className="flex justify-center mt-4">
+                <button
+                  onClick={() => toggleGameDetails(match.gameId)}
+                  className="bg-blue-600 text-white py-2 px-4 rounded-full hover:bg-blue-700 transition-colors"
+                >
+                  {selectedGame === match.gameId ? "Hide Details" : "View Details"}
+                </button>
               </div>
+              {selectedGame === match.gameId && (
+                <div className="mt-4">
+                  <h3 className="text-lg font-semibold text-gray-700 mb-2">
+                    Move Timeline
+                  </h3>
+                  {match.moves.length > 0 ? (
+                    <ul className="space-y-2">
+                      {match.moves.map((move, index) => (
+                        <li
+                          key={index}
+                          className="flex justify-between text-gray-600"
+                        >
+                          <p>
+                            <span className="font-medium">{move.player}</span>{" "}
+                            moved at position{" "}
+                            <span>{`(${move.position[0]}, ${move.position[1]})`}</span>
+                          </p>
+                          <span className="text-sm">
+                            {new Date(move.timestamp).toLocaleTimeString()}
+                          </span>
+                        </li>
+                      ))}
+                    </ul>
+                  ) : (
+                    <p className="text-gray-500">No moves recorded.</p>
+                  )}
+                </div>
+              )}
             </div>
           ))}
         </div>

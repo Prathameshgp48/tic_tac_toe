@@ -46,15 +46,6 @@ const startGame = async (req, res) => {
             return res.status(400).json({ message: "You can't play with yourself" })
         }
 
-        // const userActiveGame = await Game.findOne({
-        //     status: 'ongoing',
-        //     $or: [{ player1: currentUser }, { player2: currentUser }],
-        // })
-
-        // if (userActiveGame) {
-        //     return res.status(400).json({ message: 'You are already in an active game' });
-        // }
-
         //check if both player doesn'nt create individual game
         const existingGame = await Game.findOne({
             $or: [

@@ -27,15 +27,11 @@ const Register = () => {
         }
       );
 
-      if (response.status === 200) {
-        toast.success(response.data.message);
-        navigate("/login");
-      } else {
-        toast.error(response.data.message)
-        setMessage(response.data.message);
-      }
+      toast.success(response.data.message);
+      navigate("/login");
     } catch (error) {
       console.log(error);
+      toast.error("Something went wrong");
       setMessage("Something went wrong");
     }
   };

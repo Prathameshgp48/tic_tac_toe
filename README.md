@@ -2,17 +2,41 @@ Tic-Tac-Toe Game (Full-Stack Application)
 Overview
 This project is a full-stack Tic-Tac-Toe game built with a Vite-based frontend, Node.js backend, and a MongoDB database. Users can play against each other in near-real-time, track their game history, and view results. The backend API supports user registration, login, game start, move handling, and fetching match history.
 
-Features
-User Authentication: Register and log in using JWT-based authentication.
-Near real-time Gameplay: Users can make moves in a Tic-Tac-Toe game.
-Match History: Users can view their recent match history.
-Game Status: Display ongoing, completed, or drawn game statuses.
-Move Timeline: Users can see the sequence of moves in a match.
-Tech Stack
-Frontend: React.js(Vite based), Axios for API calls, Tailwind CSS for styling.
-Backend: Node.js, Express.js, MongoDB for storing game data and user profiles.
-Authentication: JWT-based authentication.
-Game Logic: Tic-Tac-Toe game logic for validating moves, checking for winners, and handling draws.
+## Features
+
+- **User Authentication**  
+  Users must authenticate via JWT before making moves or accessing their profile and match history.
+
+- **Near Real-time Gameplay**  
+  Players can take turns making moves in a Tic-Tac-Toe game, with real-time updates.
+
+- **Match History**  
+  Players can view their previous matches, including wins, losses, and draws.
+
+- **Game Status**  
+  The game displays its current status (ongoing, completed, or drawn).
+
+- **Move Timeline**  
+  The game records the sequence of moves made during a match for easy tracking.
+
+## Tech Stack
+
+- **Frontend**  
+  - **React.js (Vite-based)**: For building a fast and efficient user interface.
+  - **Axios**: For making asynchronous API requests.
+  - **Tailwind CSS**: For utility-first styling, ensuring a responsive and modern design.
+
+- **Backend**  
+  - **Node.js & Express.js**: For handling HTTP requests and managing game logic.
+  - **MongoDB**: For persisting user profiles and storing game data.
+
+- **Authentication**  
+  - **JWT-based Authentication**: For secure user authentication and session management.
+
+- **Game Logic**  
+  - **Tic-Tac-Toe**: Standard 3x3 grid where players alternate turns to match their mark (X/O) in rows, columns, or diagonals to win.
+
+ 
 Getting Started
 To run this project locally, follow the instructions below:
 

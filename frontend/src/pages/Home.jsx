@@ -10,14 +10,6 @@ const Home = () => {
   const username = localStorage.getItem("username");
   const navigate = useNavigate();
 
-  useEffect(() => {
-    if (!token) {
-      navigate("/login");
-    } else {
-      fetchGames();
-    }
-  }, [token, navigate]);
-
   const fetchGames = async () => {
     try {
       const response = await axios.post(
@@ -38,6 +30,14 @@ const Home = () => {
       console.log(error);
     }
   };
+
+  useEffect(() => {
+    if (!token) {
+      navigate("/login");
+    } else {
+      fetchGames();
+    }
+  }, [token, navigate]);
 
   const startGame = async () => {
     try {

@@ -59,18 +59,16 @@ const loginUser = async (req, res) => {
         return res.status(400).json({ message: "Something went wrong" });
     }
 
-    // Setup cookie options
+
     const options = {
         httpOnly: true,
-        secure: process.env.NODE_ENV === "production",  // Ensure the cookie is sent over HTTPS only in production
-        sameSite: process.env.NODE_ENV === "production" ? "None" : "Lax", // Make sure it's allowed cross-site in production
+        secure: process.env.NODE_ENV === "production",  
+        sameSite: process.env.NODE_ENV === "production" ? "None" : "Lax",
         maxAge: 7 * 24 * 60 * 60 * 1000,  // 1 week
     };
 
-    // Send the cookie with the response
     res.cookie("token", token, options);
 
-    // Mark user as online
     user.isOnline = true;
     await user.save();
 
@@ -91,8 +89,6 @@ const logoutUser = async (req, res) => {
             new: true,
         }
     )
-
-    u
 
     const options = {
         httpOnly: true,

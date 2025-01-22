@@ -2,10 +2,6 @@ Tic-Tac-Toe Game (Full-Stack Application)
 Overview
 This project is a full-stack Tic-Tac-Toe game built with a Vite-based frontend, Node.js backend, and a MongoDB database. Users can play against each other in near-real-time, track their game history, and view results. The backend API supports user registration, login, game start, move handling, and fetching match history.
 
-#Implementation video of my project:
-
-
-
 Features
 User Authentication: Register and log in using JWT-based authentication.
 Near real-time Gameplay: Users can make moves in a Tic-Tac-Toe game.

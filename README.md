@@ -3,16 +3,33 @@ Overview
 This project is a full-stack Tic-Tac-Toe game built with a Vite-based frontend, Node.js backend, and a MongoDB database. Users can play against each other in near-real-time, track their game history, and view results. The backend API supports user registration, login, game start, move handling, and fetching match history.
 
 Features
-User Authentication: Register and log in using JWT-based authentication.
-Near real-time Gameplay: Users can make moves in a Tic-Tac-Toe game.
-Match History: Users can view their recent match history.
-Game Status: Display ongoing, completed, or drawn game statuses.
-Move Timeline: Users can see the sequence of moves in a match.
+User Authentication
+
+Register and log in using JWT-based authentication for secure access.
+Near Real-time Gameplay
+
+Users can make moves in a Tic-Tac-Toe game with real-time updates.
+Match History
+
+Users can view their recent match history, including wins, losses, and draws.
+Game Status
+
+Displays the status of ongoing, completed, or drawn games.
+Move Timeline
+
+Shows the sequence of moves made during a match, so users can track the game's progress.
 Tech Stack
-Frontend: React.js(Vite based), Axios for API calls, Tailwind CSS for styling.
-Backend: Node.js, Express.js, MongoDB for storing game data and user profiles.
-Authentication: JWT-based authentication.
-Game Logic: Tic-Tac-Toe game logic for validating moves, checking for winners, and handling draws.
+Frontend
+React.js (Vite-based): For building the user interface efficiently.
+Axios: For making API calls to interact with the backend.
+Tailwind CSS: For styling the application with a responsive, utility-first approach.
+Backend
+Node.js & Express.js: For building the server and handling requests.
+MongoDB: For storing user profiles and game data.
+Authentication
+JWT-based Authentication: For secure user registration and login.
+Game Logic
+Tic-Tac-Toe Game Logic: Handles move validation, checks for winners, and detects draws.
 Getting Started
 To run this project locally, follow the instructions below:
 

@@ -63,16 +63,6 @@ const GameBox = () => {
       return;
     }
 
-    if (game?.currentTurn !== username) {
-      toast.info("Hey, It's not your turn");
-      return;
-    }
-
-    if(game?.positions[row][col] !== null) {
-      toast.info("Position already occupied");
-      return;   
-    }
-
     try {
       const response = await axios.post(
         `http://localhost:5000/api/v1/game/make-move`,
@@ -93,10 +83,10 @@ const GameBox = () => {
       } else {
         console.log(response.data);
         toast.info(response.data.message);
-        setToastKey((prevKey) => prevKey + 1);
       }
     } catch (error) {
       console.log("Error while making move", error);
+      toast.warn(error.response.data.message || "Something went wrong");
     }
   };
 
